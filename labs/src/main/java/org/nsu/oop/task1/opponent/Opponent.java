@@ -8,19 +8,23 @@ public class Opponent {
     private String s;
     private final HashMap<Character, Boolean> map;
 
-    public Opponent(){
+    public Opponent(Game game){
         map = new HashMap<>();
-        generate();
+        generate(game);
     }
 
-    private void generate(){
+    public String getS() {
+        return s;
+    }
+
+    private void generate(Game game){
         Random rand = new Random(System.nanoTime());
         LinkedList<Character> drum = new LinkedList<>();
         for (char i = '0'; i <= '9'; i++){
             drum.add(i);
         }
         StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < Game.getLENGTH(); i++){
+        for (int i = 0; i < game.getNumberLength(); i++){
             char chosenChar = drum.remove(rand.nextInt(drum.size()));
             sb.append(chosenChar);
             map.put(chosenChar, true);

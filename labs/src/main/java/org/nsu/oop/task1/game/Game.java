@@ -2,24 +2,27 @@ package org.nsu.oop.task1.game;
 
 import org.nsu.oop.task1.opponent.Opponent;
 import org.nsu.oop.task1.turn.Turn;
+import org.nsu.oop.task1.user.User;
 
 public class Game {
-    private static int LENGTH;
+    private int numberLength;
 
-    public static void setLENGTH(int LENGTH) {
-        Game.LENGTH = LENGTH;
+    public void setNumberLength(int numberLength) {
+        this.numberLength = numberLength;
     }
 
-    public static int getLENGTH() {
-        return LENGTH;
+    public int getNumberLength() {
+        return numberLength;
     }
 
-    public static void main(String[] args){
-         LENGTH = Integer.parseInt(args[1]);
-         Opponent computer = new Opponent();
+    public void start(String[] args){
+         numberLength = Integer.parseInt(args[1]);
+         Opponent computer = new Opponent(this);
+         Turn turn = new Turn();
+         User user = new User();
          do {
-            Turn.nextTurn(computer);
+            turn.nextTurn(this, computer, user);
          }
-         while (!Turn.getIsLast());
+         while (!turn.getIsLast());
     }
 }

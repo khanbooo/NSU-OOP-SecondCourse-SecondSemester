@@ -5,16 +5,16 @@ import org.nsu.oop.task1.game.Game;
 import org.nsu.oop.task1.opponent.Opponent;
 
 public class Turn {
-    private static boolean isLast = false;
+    private boolean isLast = false;
 
-    public static boolean getIsLast(){
+    public boolean getIsLast(){
         return isLast;
     }
 
-    public static void nextTurn(Opponent opponent){
-        String guess = User.guess();
+    public void nextTurn(Game game, Opponent opponent, User user){
+        String guess = user.guess(game);
         byte[] bullsAndCows = opponent.answer(guess);
-        if (bullsAndCows[0] == Game.getLENGTH() && bullsAndCows[1] == 0){
+        if (bullsAndCows[0] == game.getNumberLength() && bullsAndCows[1] == 0){
             isLast = true;
         }
     }

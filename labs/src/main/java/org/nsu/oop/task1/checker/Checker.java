@@ -3,12 +3,12 @@ package org.nsu.oop.task1.checker;
 import org.nsu.oop.task1.game.Game;
 
 public class Checker {
-    public static boolean validCheck(String s){
-        if (s.length() != Game.getLENGTH()){
+    public boolean validCheck(String s, Game game){
+        if (s.length() != game.getNumberLength()){
             return false;
         }
         boolean[] used = new boolean[10];
-        for (int i = 0; i < Game.getLENGTH(); i++){
+        for (int i = 0; i < game.getNumberLength(); i++){
             if (!Character.isDigit(s.charAt(i))){
                 return false;
             }
