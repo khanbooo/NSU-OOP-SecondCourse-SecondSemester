@@ -13,11 +13,6 @@ public class Opponent {
         generate();
     }
 
-//    public Opponent(String S){
-//
-//    }
-
-
     private void generate(){
         Random rand = new Random(System.nanoTime());
         LinkedList<Character> drum = new LinkedList<>();
