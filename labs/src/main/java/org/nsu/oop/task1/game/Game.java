@@ -1,7 +1,7 @@
 package org.nsu.oop.task1.game;
 
+import org.nsu.oop.task1.answer.Answer;
 import org.nsu.oop.task1.opponent.Opponent;
-import org.nsu.oop.task1.turn.Turn;
 import org.nsu.oop.task1.user.User;
 
 public class Game {
@@ -15,14 +15,16 @@ public class Game {
         return numberLength;
     }
 
-    public void start(String[] args){
-         numberLength = Integer.parseInt(args[1]);
-         Opponent computer = new Opponent(this);
-         Turn turn = new Turn();
-         User user = new User();
-         do {
-            turn.nextTurn(this, computer, user);
-         }
-         while (!turn.getIsLast());
+    public void start(){
+        Opponent opponent = new Opponent(this);
+        User user = new User();
+        String guess = user.guess(this);
+
+        while (true){
+            Answer bullsAndCows = opponent.answer(guess);
+            if (bullsAndCows.getBulls() == numberLength && bullsAndCows.getCows() == 0){
+                break;
+            }
+        }
     }
 }
