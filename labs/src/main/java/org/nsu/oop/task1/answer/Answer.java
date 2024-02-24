@@ -1,8 +1,8 @@
 package org.nsu.oop.task1.answer;
 
 public class Answer {
-    private Integer bulls;
-    private Integer cows;
+    private final Integer bulls;
+    private final Integer cows;
 
     public Answer(Integer bulls, Integer cows){
         this.bulls = bulls;
@@ -14,13 +14,5 @@ public class Answer {
 
     public Integer getBulls() {
         return bulls;
-    }
-
-    public void setBulls(Integer bulls) {
-        this.bulls = bulls;
-    }
-
-    public void setCows(Integer cows) {
-        this.cows = cows;
     }
 }

@@ -18,11 +18,12 @@ public class Game {
     public void start(){
         Opponent opponent = new Opponent(this);
         User user = new User();
-        String guess = user.guess(this);
+
 
         while (true){
-            Answer bullsAndCows = opponent.answer(guess);
-            if (bullsAndCows.getBulls() == numberLength && bullsAndCows.getCows() == 0){
+            String guess = user.guess(this);
+            Answer answer = opponent.answer(guess);
+            if (answer.getBulls() == numberLength && answer.getCows() == 0){
                 break;
             }
         }
