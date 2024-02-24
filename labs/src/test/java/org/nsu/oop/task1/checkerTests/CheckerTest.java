@@ -7,14 +7,52 @@ import org.nsu.oop.task1.game.Game;
 
 public class CheckerTest {
     @Test
-    public void test(){
+    public void normalTest(){
         Game exampleGame = new Game();
         exampleGame.setNumberLength(4);
         Checker checker = new Checker();
         Assert.assertTrue(checker.validCheck("1234", exampleGame));
+
+    }
+
+    @Test
+    public void tooLong(){
+        Game exampleGame = new Game();
+        exampleGame.setNumberLength(4);
+        Checker checker = new Checker();
         Assert.assertFalse(checker.validCheck("12345", exampleGame));
+
+    }
+
+    @Test
+    public void tooShort(){
+        Game exampleGame = new Game();
+        exampleGame.setNumberLength(4);
+        Checker checker = new Checker();
+        Assert.assertFalse(checker.validCheck("123", exampleGame));
+    }
+
+    @Test
+    public void someSameDigits(){
+        Game exampleGame = new Game();
+        exampleGame.setNumberLength(4);
+        Checker checker = new Checker();
         Assert.assertFalse(checker.validCheck("1102", exampleGame));
+    }
+
+    @Test
+    public void allSameDigits(){
+        Game exampleGame = new Game();
+        exampleGame.setNumberLength(4);
+        Checker checker = new Checker();
         Assert.assertFalse(checker.validCheck("1111", exampleGame));
+    }
+
+    @Test
+    public void containsNonDigitSymbols(){
+        Game exampleGame = new Game();
+        exampleGame.setNumberLength(4);
+        Checker checker = new Checker();
         Assert.assertFalse(checker.validCheck("aSd1", exampleGame));
     }
 }
