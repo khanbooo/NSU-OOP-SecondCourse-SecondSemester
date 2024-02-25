@@ -9,15 +9,14 @@ public class User {
 
     public String guess(Game game){
         Scanner sc = new Scanner(System.in);
-        String s = null;
         Checker checker = new Checker();
-        do {
-            if (s != null) {
+        while (true){
+            String s = sc.nextLine();
+            if (!checker.validCheck(s, game)){
                 System.out.printf("Bad input. Enter %d-digit number without repeating digits\n", game.getNumberLength());
+                continue;
             }
-            s = sc.nextLine();
+            return s;
         }
-        while (!checker.validCheck(s, game));
-        return s;
     }
 }
