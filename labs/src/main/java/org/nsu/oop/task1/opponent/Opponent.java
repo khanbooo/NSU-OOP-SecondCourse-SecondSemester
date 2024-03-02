@@ -14,8 +14,24 @@ public class Opponent {
         generate(game);
     }
 
+    public Opponent(Integer length, String s){
+        setS(length, s);
+        map = new HashMap<>();
+        fillTheMap(length, s);
+    };
+
     public String getS() {
         return s;
+    }
+
+    public void setS(Integer length, String s) {
+        this.s = s;
+    }
+
+    private void fillTheMap(Integer length, String s){
+        for (int i = 0; i < length; i++){
+            map.put(s.charAt(i), true);
+        }
     }
 
     private void generate(Game game){
@@ -28,9 +44,9 @@ public class Opponent {
         for (int i = 0; i < game.getNumberLength(); i++){
             char chosenChar = drum.remove(rand.nextInt(drum.size()));
             sb.append(chosenChar);
-            map.put(chosenChar, true);
         }
         s = sb.toString();
+        fillTheMap(game.getNumberLength(), s);
     }
 
     private Answer compare(String s){
