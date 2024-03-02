@@ -1,14 +1,12 @@
 package org.nsu.oop.task1.checker;
 
-import org.nsu.oop.task1.game.Game;
-
 public class Checker {
-    public boolean validCheck(String s, Game game){
-        if (s.length() != game.getNumberLength()){
+    public boolean validCheck(String s, int numberLength){
+        if (s.length() != numberLength){
             return false;
         }
         boolean[] used = new boolean[10];
-        for (int i = 0; i < game.getNumberLength(); i++){
+        for (int i = 0; i < numberLength; i++){
             if (!Character.isDigit(s.charAt(i))){
                 return false;
             }

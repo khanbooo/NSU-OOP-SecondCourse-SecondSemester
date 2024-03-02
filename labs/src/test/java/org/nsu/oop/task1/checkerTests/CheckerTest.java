@@ -11,7 +11,7 @@ public class CheckerTest {
         Game exampleGame = new Game();
         exampleGame.setNumberLength(4);
         Checker checker = new Checker();
-        Assert.assertTrue(checker.validCheck("1234", exampleGame));
+        Assert.assertTrue(checker.validCheck("1234", exampleGame.getNumberLength()));
 
     }
 
@@ -20,7 +20,7 @@ public class CheckerTest {
         Game exampleGame = new Game();
         exampleGame.setNumberLength(4);
         Checker checker = new Checker();
-        Assert.assertFalse(checker.validCheck("12345", exampleGame));
+        Assert.assertFalse(checker.validCheck("12345", exampleGame.getNumberLength()));
 
     }
 
@@ -29,7 +29,7 @@ public class CheckerTest {
         Game exampleGame = new Game();
         exampleGame.setNumberLength(4);
         Checker checker = new Checker();
-        Assert.assertFalse(checker.validCheck("123", exampleGame));
+        Assert.assertFalse(checker.validCheck("123", exampleGame.getNumberLength()));
     }
 
     @Test
@@ -37,7 +37,7 @@ public class CheckerTest {
         Game exampleGame = new Game();
         exampleGame.setNumberLength(4);
         Checker checker = new Checker();
-        Assert.assertFalse(checker.validCheck("1102", exampleGame));
+        Assert.assertFalse(checker.validCheck("1102", exampleGame.getNumberLength()));
     }
 
     @Test
@@ -45,7 +45,7 @@ public class CheckerTest {
         Game exampleGame = new Game();
         exampleGame.setNumberLength(4);
         Checker checker = new Checker();
-        Assert.assertFalse(checker.validCheck("1111", exampleGame));
+        Assert.assertFalse(checker.validCheck("1111", exampleGame.getNumberLength()));
     }
 
     @Test
@@ -53,6 +53,6 @@ public class CheckerTest {
         Game exampleGame = new Game();
         exampleGame.setNumberLength(4);
         Checker checker = new Checker();
-        Assert.assertFalse(checker.validCheck("aSd1", exampleGame));
+        Assert.assertFalse(checker.validCheck("aSd1", exampleGame.getNumberLength()));
     }
 }

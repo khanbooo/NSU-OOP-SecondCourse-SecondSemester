@@ -1,7 +1,6 @@
 package org.nsu.oop.task1.opponent;
 
 import org.nsu.oop.task1.answer.Answer;
-import org.nsu.oop.task1.game.Game;
 
 import java.util.*;
 
@@ -9,22 +8,22 @@ public class Opponent {
     private String s;
     private final HashMap<Character, Boolean> map;
 
-    public Opponent(Game game){
+    public Opponent(int numberLength){
         map = new HashMap<>();
-        generate(game);
+        generate(numberLength);
     }
 
     public Opponent(Integer length, String s){
-        setS(length, s);
+        setS(s);
         map = new HashMap<>();
         fillTheMap(length, s);
-    };
+    }
 
     public String getS() {
         return s;
     }
 
-    public void setS(Integer length, String s) {
+    public void setS(String s) {
         this.s = s;
     }
 
@@ -34,19 +33,19 @@ public class Opponent {
         }
     }
 
-    private void generate(Game game){
+    private void generate(int numberLength){
         Random rand = new Random(System.nanoTime());
         LinkedList<Character> drum = new LinkedList<>();
         for (char i = '0'; i <= '9'; i++){
             drum.add(i);
         }
         StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < game.getNumberLength(); i++){
+        for (int i = 0; i < numberLength; i++){
             char chosenChar = drum.remove(rand.nextInt(drum.size()));
             sb.append(chosenChar);
         }
         s = sb.toString();
-        fillTheMap(game.getNumberLength(), s);
+        fillTheMap(numberLength, s);
     }
 
     private Answer compare(String s){

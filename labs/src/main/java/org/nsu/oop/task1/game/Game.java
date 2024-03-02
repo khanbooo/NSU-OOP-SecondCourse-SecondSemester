@@ -16,12 +16,12 @@ public class Game {
     }
 
     public void start(){
-        Opponent opponent = new Opponent(this);
+        Opponent opponent = new Opponent(numberLength);
         User user = new User();
 
 
         while (true){
-            String guess = user.guess(this);
+            String guess = user.guess(numberLength);
             Answer answer = opponent.answer(guess);
             if (answer.getBulls() == numberLength && answer.getCows() == 0){
                 break;

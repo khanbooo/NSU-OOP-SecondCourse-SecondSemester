@@ -12,9 +12,9 @@ public class OpponentTests {
     public void validGenerationTest(){
         Game exampleGame = new Game();
         exampleGame.setNumberLength(4);
-        Opponent exampleOpponent = new Opponent(exampleGame);
+        Opponent exampleOpponent = new Opponent(exampleGame.getNumberLength());
         Checker checker = new Checker();
-        Assert.assertTrue(checker.validCheck(exampleOpponent.getS(), exampleGame));
+        Assert.assertTrue(checker.validCheck(exampleOpponent.getS(), exampleGame.getNumberLength()));
     }
 
     @Test
