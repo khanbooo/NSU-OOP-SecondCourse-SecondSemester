@@ -1,6 +1,7 @@
 package org.nsu.oop.task2.main;
 
 import org.nsu.oop.task2.calculator.Calculator;
+import org.nsu.oop.task2.error.ConfigException;
 import org.nsu.oop.task2.utility.ArgumentParser;
 import org.nsu.oop.task2.utility.StreamContainer;
 
@@ -20,5 +21,11 @@ public class Main {
         }
 
         Calculator calculator = new Calculator(streamContainer.getCommandStream());
+        try{
+            calculator.start();
+        } catch (ConfigException e){
+            calculator.LOGGER.error("Unable to start calculations: " + e.getMessage());
+        }
+
     }
 }

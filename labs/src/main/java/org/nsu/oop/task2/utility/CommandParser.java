@@ -1,8 +1,6 @@
 package org.nsu.oop.task2.utility;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 public class CommandParser {
     private String commandName;
@@ -14,6 +12,7 @@ public class CommandParser {
     }
 
     public void parse(){
+        if (stringToParse == null || stringToParse.isEmpty()) return;
         String[] parsedString = stringToParse.split(" ");
         commandName = parsedString[0];
         args = Arrays.stream(parsedString).skip(1).toArray(String[]::new);

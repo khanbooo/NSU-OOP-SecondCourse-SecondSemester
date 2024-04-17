@@ -12,14 +12,14 @@ public class CommandPop extends Command{
 
     @Override
     public void execute(Context context, String[] args) throws InvalidArgumentException,
-                        ContextStackOperationException, CommandExecutionException {
+                        CommandExecutionException {
         super.execute(context, args);
         try{
             context.pop();
         }
         catch (ContextStackOperationException e){
             throw new CommandExecutionException(this.command_name + " executed with exception. " +
-                                                "Unable to pop from stack: " + e.getMessage());
+                                                " unable to pop from stack: " + e.getMessage());
         }
     }
 }

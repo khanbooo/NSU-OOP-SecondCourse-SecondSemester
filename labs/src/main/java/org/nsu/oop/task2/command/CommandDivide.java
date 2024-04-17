@@ -1,7 +1,6 @@
 package org.nsu.oop.task2.command;
 
 import org.nsu.oop.task2.error.CommandExecutionException;
-import org.nsu.oop.task2.error.ContextStackOperationException;
 import org.nsu.oop.task2.error.InvalidArgumentException;
 import org.nsu.oop.task2.utility.Context;
 
@@ -12,7 +11,7 @@ public class CommandDivide extends CommandBinary{
 
     @Override
     public void execute(Context context, String[] args) throws InvalidArgumentException,
-                        ContextStackOperationException, CommandExecutionException {
+                        CommandExecutionException {
         super.execute(context, args);
         try{
             if (second_operand == 0) throw new CommandExecutionException(this.command_name +
