@@ -8,6 +8,8 @@ import org.nsu.oop.task2.utility.Context;
 public class CommandSqrt extends Command{
     private double operand;
 
+    private double squareRoot;
+
     public CommandSqrt() {
         super("SQRT", 0);
     }
@@ -23,6 +25,12 @@ public class CommandSqrt extends Command{
             throw new CommandExecutionException(this.num_of_args + " unable to perform: " + e.getMessage());
         }
 
-        context.push(Math.sqrt(operand));
+        this.squareRoot = Math.sqrt(this.operand);
+        if (Double.isNaN(this.squareRoot)){
+            context.push(this.operand);
+            throw new CommandExecutionException(this.command_name +
+                    " executed with arithmetic exception: unable to compute square root of negative number.");
+        }
+        context.push(squareRoot);
     }
 }
