@@ -3,6 +3,7 @@ POP=org.nsu.oop.task2.command.CommandPop
 DEFINE=org.nsu.oop.task2.command.CommandDefine
 PRINT=org.nsu.oop.task2.command.CommandPrint
 SQRT=org.nsu.oop.task2.command.CommandSqrt
+REDUCE=org.nsu.oop.task2.command.CommandReduce
 /=org.nsu.oop.task2.command.CommandDivide
 *=org.nsu.oop.task2.command.CommandMultiply
 +=org.nsu.oop.task2.command.CommandPlus

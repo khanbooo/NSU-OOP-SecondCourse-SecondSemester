@@ -43,4 +43,8 @@ public class Context {
             throw new ContextStackOperationException("Could not peek because stack is empty.");
         }
     }
+
+    public int getStackSize(){
+        return this.stack.size();
+    }
 }

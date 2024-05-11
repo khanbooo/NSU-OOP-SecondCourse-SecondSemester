@@ -12,6 +12,7 @@ import org.nsu.oop.task2.factory.CommandFactory;
 import org.nsu.oop.task2.utility.CommandParser;
 import org.nsu.oop.task2.utility.Context;
 
+import java.util.Objects;
 import java.util.stream.Stream;
 
 public class Calculator {
@@ -34,6 +35,9 @@ public class Calculator {
             command_parser = new CommandParser(str);
             command_parser.parse();
             Command command = commandFactory.createCommandInstanceByItsName(command_parser.getCommandName());
+            if (Objects.equals(command_parser.getCommandName(), "REDUCE")){
+                command.setCommandFactory(commandFactory);
+            }
             command.execute(context, command_parser.getArgs());
             LOGGER.debug(command + " was successfully executed.");
         } catch (InvalidArgumentException | CommandExecutionException | CommandCreationException e) {

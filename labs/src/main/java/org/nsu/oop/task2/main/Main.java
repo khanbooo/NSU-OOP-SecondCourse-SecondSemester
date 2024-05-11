@@ -18,6 +18,7 @@ public class Main {
         }
         catch (Throwable e){
             streamContainer.LOGGER.error("Error occurred: " + e.getMessage());
+            return;
         }
 
         Calculator calculator = new Calculator(streamContainer.getCommandStream());
