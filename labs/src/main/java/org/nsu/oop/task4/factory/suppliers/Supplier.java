@@ -1,7 +1,7 @@
-package org.nsu.oop.task3.factory.suppliers;
+package org.nsu.oop.task4.factory.suppliers;
 
-import org.nsu.oop.task3.factory.parts.Part;
-import org.nsu.oop.task3.factory.storage.Storage;
+import org.nsu.oop.task4.factory.parts.Part;
+import org.nsu.oop.task4.factory.storage.Storage;
 
 public abstract class Supplier extends Thread{
     private int period;
@@ -22,7 +22,7 @@ public abstract class Supplier extends Thread{
                 Thread.sleep(period);
 
                 part = produce();
-                //закинуть на склад
+                storage.load(part);
             }
             catch(InterruptedException e){
                 break;
@@ -32,6 +32,10 @@ public abstract class Supplier extends Thread{
 
     public void setPeriod(int period){
         this.period = period;
+    }
+
+    public int getPeriod() {
+        return period;
     }
 
     public abstract Part produce();

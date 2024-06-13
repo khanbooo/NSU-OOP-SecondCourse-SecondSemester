@@ -1,4 +1,4 @@
-package org.nsu.oop.task3.threadPool;
+package org.nsu.oop.task4.threadPool;
 
 import java.util.ArrayList;
 import java.util.concurrent.LinkedBlockingQueue;
@@ -9,12 +9,12 @@ public class ThreadPool {
     private final LinkedBlockingQueue<Runnable> queue;
 
     public ThreadPool(int pool_size){
-        this.number_of_workers = pool_size;
+        number_of_workers = pool_size;
         workers = new ArrayList<>();
-        queue = new LinkedBlockingQueue<Runnable>();
+        queue = new LinkedBlockingQueue<>();
 
         for (int i = 0; i < number_of_workers; i++){
-            this.workers.add(new Thread(() -> {
+            workers.add(new Thread(() -> {
                 while (true){
                     try{
                         queue.take().run();
@@ -24,6 +24,8 @@ public class ThreadPool {
                     }
                 }
             }));
+
+            workers.get(i).start();
         }
     }
 
@@ -44,9 +46,7 @@ public class ThreadPool {
                 w.interrupt();
                 w.join();
             }
-            catch(InterruptedException ignored){
-
-            }
+            catch(InterruptedException ignored){}
         }
     }
 

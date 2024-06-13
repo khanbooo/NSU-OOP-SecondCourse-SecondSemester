@@ -1,8 +1,8 @@
-package org.nsu.oop.task3.factory.suppliers;
+package org.nsu.oop.task4.factory.suppliers;
 
-import org.nsu.oop.task3.factory.parts.Engine;
-import org.nsu.oop.task3.factory.parts.Part;
-import org.nsu.oop.task3.factory.storage.Storage;
+import org.nsu.oop.task4.factory.parts.Engine;
+import org.nsu.oop.task4.factory.parts.Part;
+import org.nsu.oop.task4.factory.storage.Storage;
 
 public class EngineSupplier extends Supplier{
 
