@@ -13,7 +13,6 @@ public class Car{
 
     @Override
     public String toString(){
-        //not sure whether it works or not
         return "Car (Car: accessory: " + accessory.getId() + " body: " + body.getId() + " engine: " + engine.getId() + "\n";
     }
 }
