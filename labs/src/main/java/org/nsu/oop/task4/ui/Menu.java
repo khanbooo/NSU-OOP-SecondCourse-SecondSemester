@@ -21,7 +21,7 @@ public class Menu extends JFrame implements Subscriber<StockChangeEvent> {
 
         this.setTitle("Car Factory");
         this.setMinimumSize(new Dimension(width, height));
-        this.setResizable(false);
+        this.setResizable(true);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         Container container = getContentPane();
