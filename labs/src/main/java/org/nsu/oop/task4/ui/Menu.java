@@ -11,8 +11,8 @@ import javax.swing.*;
 import java.awt.*;
 
 public class Menu extends JFrame implements Subscriber<StockChangeEvent> {
-    private static final int height = 480;
-    private static final int width = 640;
+    private static final int height = 720;
+    private static final int width = 1024;
     private final Stats stats;
 
 

@@ -37,7 +37,7 @@ public class Controller implements Subscriber<FactoryEvent>, Publisher<FactoryEv
     @Override
     public void publish(FactoryEvent event) {
         if (menu == null) {
-            throw new RuntimeException("menu not attached to controller");
+            throw new RuntimeException("Menu is not attached to the controller\n");
         }
 
         menu.onEvent((StockChangeEvent) event);
@@ -58,7 +58,7 @@ public class Controller implements Subscriber<FactoryEvent>, Publisher<FactoryEv
 
     private void handleSpeedChange(SpeedChangeEvent event) {
         if (factory == null) {
-            throw new RuntimeException("factory not attached to controller");
+            throw new RuntimeException("Factory is not attached to the controller\n");
         }
 
         Class<?> partClass = event.getPartClass();

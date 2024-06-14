@@ -6,12 +6,12 @@ import java.util.logging.Logger;
 
 public class Dealer extends Thread{
     private int period;
-    private final Storage<Car> carStorage;
+    private final Storage<Car> car_storage;
     protected final int id;
     private final Logger logger;
 
-    public Dealer(Storage<Car> carStorage, int period, int id, Logger logger){
-        this.carStorage = carStorage;
+    public Dealer(Storage<Car> car_storage, int period, int id, Logger logger){
+        this.car_storage = car_storage;
         this.period = period;
         this.id = id;
         this.logger = logger;
@@ -22,7 +22,7 @@ public class Dealer extends Thread{
         while (true){
             try{
                 Thread.sleep(period);
-                Car car = carStorage.unload();
+                Car car = car_storage.unload();
                 if (logger != null){
                     logger.info("Dealer " + id + " received: " + car.toString());
                 }

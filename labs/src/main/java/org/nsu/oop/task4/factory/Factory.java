@@ -43,23 +43,17 @@ public class Factory {
             accessory_suppliers[i] = new AccessorySupplier(accessory_storage);
         }
 
-        assembly_plant = new AssemblyPlant(
-                config.number_of_workers,
-                body_storage,
-                engine_storage,
-                accessory_storage,
-                car_storage
-        );
+        assembly_plant = new AssemblyPlant(config.number_of_workers, body_storage, engine_storage, accessory_storage, car_storage);
 
         Logger logger = null;
         if (config.is_logger_on) {
-            logger = Logger.getLogger("Sales Logger");
+            logger = Logger.getLogger("Logger");
 
             try {
                 FileHandler fh = new FileHandler("sales.log");
                 logger.addHandler(fh);
             } catch (IOException e) {
-                throw new RuntimeException("error opening log file: " + e.getMessage());
+                throw new RuntimeException("error while opening log file: " + e.getMessage());
             }
         }
 

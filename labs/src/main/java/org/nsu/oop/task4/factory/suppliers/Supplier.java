@@ -17,10 +17,8 @@ public abstract class Supplier extends Thread{
     public void run(){
         while (true){
             Part part;
-
             try{
                 Thread.sleep(period);
-
                 part = produce();
                 storage.load(part);
             }

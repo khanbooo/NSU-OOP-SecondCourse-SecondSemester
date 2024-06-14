@@ -6,9 +6,7 @@ import org.nsu.oop.task4.threadPool.ThreadPool;
 
 public class AssemblyPlant extends ThreadPool {
     private static final int period = 10;
-
     private final Storage<Car> car_storage;
-
     private final Storage<Part> engine_storage;
     private final Storage<Part> body_storage;
     private final Storage<Part> accessory_storage;

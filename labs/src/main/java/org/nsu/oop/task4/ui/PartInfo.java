@@ -7,14 +7,9 @@ public class PartInfo extends JPanel {
     //tbd from
 
 
-    private static final String font_name = "Arial";
-    private static final int font_size = 12;
+    private static final String font_name = "Serif";
+    private static final int font_size = 16;
     private static final int title_font_size = 20;
-
-
-    //tbd to
-
-
 
     private final JLabel current_amount;
     private final JLabel total_amount;

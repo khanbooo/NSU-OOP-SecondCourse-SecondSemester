@@ -12,10 +12,7 @@ public class Main {
 
         Menu menu = new Menu();
 
-        Controller controller = Controller
-                .getInstance()
-                .addMenu(menu)
-                .addFactory(factory);
+        Controller controller = Controller.getInstance().addMenu(menu).addFactory(factory);
 
         factory.addSubscriber(controller);
         menu.display();
